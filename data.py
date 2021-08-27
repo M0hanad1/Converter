@@ -181,10 +181,23 @@ class Octal:
         self.num = num
 
     def to_decimal(self) -> int:
-        return
+        result = 0
+        pow_num = 0
+
+        for i in str(self.num)[::-1]:
+            result += int(i) * pow(8, pow_num)
+            pow_num += 1
+
+        return result
 
     def to_binary(self) -> str:
         return
 
     def to_hex(self) -> str:
         return
+
+
+num = Octal()
+print(num.to_decimal())
+print(num.to_binary())
+print(num.to_hex())
