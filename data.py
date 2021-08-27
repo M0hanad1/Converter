@@ -200,10 +200,4 @@ class Octal:
         return result
 
     def to_hex(self) -> str:
-        return
-
-
-num = Octal(13)
-print(num.to_decimal())
-print(num.to_binary())
-print(num.to_hex())
+        return Binary(self.to_binary()).to_hex()
