@@ -146,7 +146,21 @@ class Hexadecimal:
         self.num = num
 
     def to_decimal(self) -> int:
-        return
+        num = self.num
+        _hex = {"A": 10, "B": 11, "C": 12, "D": 13, "E": 14, "F": 15}
+        result = 0
+        pow_num = 0
+
+        for i in num[::-1]:
+            if i in _hex:
+                result += _hex[i] * pow(16, pow_num)
+
+            else:
+                result += int(i) * pow(16, pow_num)
+
+            pow_num += 1
+
+        return result
 
     def to_binary(self) -> str:
         return
@@ -167,3 +181,9 @@ class Octal:
 
     def to_hex(self) -> str:
         return
+
+
+# num = Hexadecimal("7DE")
+# print(num.to_binary())
+# print(num.to_decimal())
+# print(num.to_octal())
