@@ -20,6 +20,9 @@ class Decimal:
         _hex = {10: "A", 11: "B", 12: "C", 13: "D", 14: "E", 15: "F"}
         result = ""
 
+        if num == 0:
+            result += "0"
+
         while num > 0:
             if num % 16 in _hex:
                 result += _hex[num]
@@ -28,18 +31,28 @@ class Decimal:
                 result += str(num)
 
             num //= 16
-            
+
         return result[::-1]
 
     def to_octal(self) -> int:
-        return
+        num = self.num
+        result = 0
+
+        if num == 0:
+            pass
+
+        while num > 0:
+            result += num % 8
+            num //= 8
+
+        return result
 
 
-class Bianry:
+class Binary:
     def __init__(self, num: str) -> None:
         self.num = num
 
-    def to_deimal(self) -> int:
+    def to_decimal(self) -> int:
         return
 
     def to_hex(self) -> str:
@@ -53,7 +66,7 @@ class Hexadecimal:
     def __init__(self, num: str) -> None:
         self.num = num
 
-    def to_deimal(self) -> int:
+    def to_decimal(self) -> int:
         return
 
     def to_binary(self) -> str:
@@ -67,7 +80,7 @@ class Octal:
     def __init__(self, num: int) -> None:
         self.num = num
 
-    def to_deimal(self) -> int:
+    def to_decimal(self) -> int:
         return
 
     def to_binary(self) -> str:
