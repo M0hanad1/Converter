@@ -194,6 +194,6 @@ class Octal:
 
 
 # num = Hexadecimal("DE")
-# print(num.to_binary())
 # print(num.to_decimal())
+# print(num.to_binary())
 # print(num.to_octal())
