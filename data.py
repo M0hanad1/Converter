@@ -16,7 +16,20 @@ class Decimal:
         return result[::-1]
 
     def to_hex(self) -> str:
-        return
+        num = self.num
+        _hex = {10: "A", 11: "B", 12: "C", 13: "D", 14: "E", 15: "F"}
+        result = ""
+
+        while num > 0:
+            if num % 16 in _hex:
+                result += _hex[num]
+
+            else:
+                result += str(num)
+
+            num //= 16
+            
+        return result[::-1]
 
     def to_octal(self) -> int:
         return
