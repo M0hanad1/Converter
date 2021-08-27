@@ -3,7 +3,17 @@ class Decimal:
         self.num = num
 
     def to_binary(self) -> str:
-        return
+        num = self.num
+        result = ""
+
+        if num == 0:
+            result += "0"
+
+        while num > 0:
+            result += str(num % 2)
+            num //= 2
+
+        return result[::-1]
 
     def to_hex(self) -> str:
         return
