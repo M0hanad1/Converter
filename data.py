@@ -79,20 +79,19 @@ class Binary:
         nums_value = 0
         result = ""
 
-        if (len(num) / 4) - (len(num) // 4) == 0:
-            pass
-
-        else:
-            while (len(num) / 4) - (len(num) // 4) != 0:
-                num = "0" + num
+        while (len(num) / 4) - (len(num) // 4) != 0:
+            num = "0" + num
 
         while len(num) != 0:
             for i in range(0, 4):
                 if i == 0:
                     nums[nums_value] = num[0]
+
                 else:
-                    nums[nums_value] = nums[nums_value] + num[index]
+                    nums[nums_value] += num[index]
+
                 index += 1
+
             nums_value += 1
             num = num[index:]
             index = 0
@@ -102,8 +101,44 @@ class Binary:
 
         return result
 
-    def to_octal(self) -> int:
-        return
+    def to_octal(self) -> str:
+        num = self.num
+        result = ""
+        nums = {}
+        index = 0
+        nums_value = 0
+        mult_num = 1
+        result_num = 0
+
+        while (len(num) / 3) - (len(num) // 3) != 0:
+            num = "0" + num
+
+        while len(num) > 0:
+            for i in range(0, 3):
+                if i == 0:
+                    nums[nums_value] = num[index]
+
+                else:
+                    nums[nums_value] += num[index]
+
+                index += 1
+
+            nums_value += 1
+            num = num[index:]
+            index = 0
+
+        for i in nums:
+            bnum = nums[i]
+
+            for j in bnum[::-1]:
+                result_num += int(j) * mult_num
+                mult_num *= 2
+
+            mult_num = 1
+            result += str(result_num)
+            result_num = 0
+
+        return result
 
 
 class Hexadecimal:
@@ -132,9 +167,3 @@ class Octal:
 
     def to_hex(self) -> str:
         return
-
-
-bina = Binary("1011")
-print(bina.to_decimal())
-print(bina.to_hex())
-print(bina.to_octal())
