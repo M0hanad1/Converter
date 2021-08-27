@@ -191,13 +191,19 @@ class Octal:
         return result
 
     def to_binary(self) -> str:
-        return
+        result = ""
+        binary = {0: "000", 1: "001", 2: "010", 3: "011", 4: "100", 5: "101", 6: "110", 7: "111"}
+
+        for i in str(self.num):
+            result += binary[int(i)]
+
+        return result
 
     def to_hex(self) -> str:
         return
 
 
-num = Octal()
+num = Octal(13)
 print(num.to_decimal())
 print(num.to_binary())
 print(num.to_hex())
