@@ -58,11 +58,10 @@ class Binary:
         self.num = num
 
     def to_decimal(self) -> int:
-        num = self.num
         result = 0
         pow_num = 0
 
-        for i in num[::-1]:
+        for i in self.num[::-1]:
             result += int(i) * pow(2, pow_num)
             pow_num += 1
 
@@ -146,12 +145,11 @@ class Hexadecimal:
         self.num = num
 
     def to_decimal(self) -> int:
-        num = self.num
         _hex = {"A": 10, "B": 11, "C": 12, "D": 13, "E": 14, "F": 15}
         result = 0
         pow_num = 0
 
-        for i in num[::-1]:
+        for i in self.num[::-1]:
             if i in _hex:
                 result += _hex[i] * pow(16, pow_num)
 
@@ -163,20 +161,19 @@ class Hexadecimal:
         return result
 
     def to_binary(self) -> str:
-        num = self.num
         _hex = {
             "0": "0000", "1": "0001", "2": "0010", "3": '0011', "4": "0100", "5": "0101", "6": "0110", "7": "0111",
             "8": "1000", "9": "1001", "A": "1010", "B": "1011", "C": "1100", "D": "1101", "E": "1110", "F": "1111"
         }
         result = ""
 
-        for i in num:
+        for i in self.num:
             result += _hex[i]
 
         return result
 
-    def to_octal(self) -> int:
-        return
+    def to_octal(self) -> str:
+        return Binary(self.to_binary()).to_octal()
 
 
 class Octal:
@@ -191,9 +188,3 @@ class Octal:
 
     def to_hex(self) -> str:
         return
-
-
-# num = Hexadecimal("DE")
-# print(num.to_decimal())
-# print(num.to_binary())
-# print(num.to_octal())
