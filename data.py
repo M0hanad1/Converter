@@ -106,7 +106,7 @@ class Binary:
         nums = {}
         index = 0
         nums_value = 0
-        mult_num = 1
+        multi_num = 1
         result_num = 0
 
         while (len(num) / 3) - (len(num) // 3) != 0:
@@ -127,13 +127,13 @@ class Binary:
             index = 0
 
         for i in nums:
-            bnum = nums[i]
+            b_num = nums[i]
 
-            for j in bnum[::-1]:
-                result_num += int(j) * mult_num
-                mult_num *= 2
+            for j in b_num[::-1]:
+                result_num += int(j) * multi_num
+                multi_num *= 2
 
-            mult_num = 1
+            multi_num = 1
             result += str(result_num)
             result_num = 0
 
