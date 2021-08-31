@@ -25,7 +25,7 @@ class Decimal:
 
         while num > 0:
             if num % 16 in _hex:
-                result += _hex[num]
+                result += _hex[num % 16]
 
             else:
                 result += str(num % 16)
