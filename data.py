@@ -1,6 +1,5 @@
-class functions:
-    global check
-
+class Functions:
+    @staticmethod
     def check(result: str) -> str:
         for i in result:
             if i == "0":
@@ -97,7 +96,7 @@ class Binary:
         return result
 
     def to_hex(self) -> str or None:
-        if self.check == False:
+        if self.check is False:
             return None
 
         num = self.num
@@ -130,10 +129,10 @@ class Binary:
         for i in nums:
             result += _hex[nums[i]]
 
-        return check(result)
+        return Functions.check(result)
 
     def to_octal(self) -> str or None:
-        if self.check == False:
+        if self.check is False:
             return None
 
         num = self.num
@@ -172,7 +171,7 @@ class Binary:
             result += str(result_num)
             result_num = 0
 
-        return check(result)
+        return Functions.check(result)
 
 
 class Hexadecimal:
@@ -187,7 +186,7 @@ class Hexadecimal:
                     if int(i) not in range(0, 10) and i not in _hex:
                         self.check = False
                         break
-                except:
+                except ValueError or TypeError:
                     if i not in _hex:
                         self.check = False
                         break
@@ -226,7 +225,7 @@ class Hexadecimal:
         for i in self.num:
             result += _hex[i]
 
-        return check(result)
+        return Functions.check(result)
 
     def to_octal(self) -> str or None:
         if self.check is False:
@@ -271,7 +270,7 @@ class Octal:
         for i in str(self.num):
             result += binary[int(i)]
 
-        return check(result)
+        return Functions.check(result)
 
     def to_hex(self) -> str or None:
         if self.check is False:
