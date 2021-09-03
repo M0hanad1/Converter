@@ -1,3 +1,16 @@
+class functions:
+    global check
+
+    def check(result: str) -> str:
+        for i in result:
+            if i == "0":
+                result = result[1:]
+            else:
+                break
+
+        return result
+
+
 class Decimal:
     def __init__(self, num: int) -> None:
         self.num = num
@@ -98,7 +111,7 @@ class Binary:
         for i in nums:
             result += _hex[nums[i]]
 
-        return result
+        return check(result)
 
     def to_octal(self) -> str:
         num = self.num
@@ -137,7 +150,7 @@ class Binary:
             result += str(result_num)
             result_num = 0
 
-        return result
+        return check(result)
 
 
 class Hexadecimal:
@@ -167,7 +180,7 @@ class Hexadecimal:
         }
         result = ""
 
-        for i in self.num:
+        for i in check(self.num):
             result += _hex[i]
 
         return result
@@ -197,7 +210,7 @@ class Octal:
         for i in str(self.num):
             result += binary[int(i)]
 
-        return result
+        return check(result)
 
     def to_hex(self) -> str:
         return Binary(self.to_binary()).to_hex()
