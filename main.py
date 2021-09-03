@@ -1,4 +1,5 @@
 from data import *
+import sys
 
 
 def main() -> None:
@@ -9,33 +10,44 @@ def main() -> None:
 [4, O, Octal]: To convert from Octal
 [5, E, Exit]: To Exit from the program
 Choose one of this:\n""").strip()).capitalize()
-
     return check(_type)
 
 
 def check(value: str) -> None:
     if value == "1" or value == "D" or value == "Decimal":
-        return from_decimal(num=int(input("\nWrite a Decimal number:\n").strip()))
+        return from_decimal(input("\nWrite a Decimal number:\n").strip())
 
     elif value == "2" or value == "B" or value == "Binary":
-        return from_binary(num=str(input("\nWrite a Binary number:\n").strip()))
+        return from_binary(input("\nWrite a Binary number:\n").strip())
 
     elif value == "3" or value == "H" or value == "Hex" or value == "Hexadecimal":
-        return from_hex(num=str(input("\nWrite a Hexadecimal number:\n").strip()))
+        return from_hex(input("\nWrite a Hexadecimal number:\n").strip().upper())
 
     elif value == "4" or value == "O" or value == "Octal":
-        return from_octal(num=int(input("\nWrite a Octal number:\n").strip()))
+        return from_octal(input("\nWrite a Octal number:\n").strip())
 
     elif value == "5" or value == "E" or value == "Exit":
-        exit()
+        sys.exit("Okay, see you later") 
 
     else:
-        print("Wrong value please try again")
+        print("\nWrong value please try again\n")
         return main()
 
 
 def from_decimal(num: int) -> None:
-    _num = Decimal(num)
+    try:
+        int(num)
+
+    except:
+        if len(num) == 0:
+            print("\nYou have to write the decimal number, please try again\n")
+
+        else:
+            print(f"\n{num} is not a decimal number, please try again\n")
+
+        main()
+
+    _num = Decimal(int(num))
     print(f"\nDecimal: {num}\nBinary: {_num.to_binary()}\nHexadecimal: {_num.to_hex()}\nOctal: {_num.to_octal()}\n")
 
     return main()
@@ -43,21 +55,56 @@ def from_decimal(num: int) -> None:
 
 def from_binary(num: str) -> None:
     _num = Binary(num)
-    print(f"\nBinary: {num}\nDecimal: {_num.to_decimal()}\nHexadecimal: {_num.to_hex()}\nOctal: {_num.to_octal()}\n")
+
+    if len(num) == 0:
+        print("\nYou have to write the binary number, please try again\n")
+
+    else:
+        if _num.check is False:
+            print(f"\n{num} is not a binary number, please try again\n")
+
+        else:
+            print(f"\nBinary: {num}\nDecimal: {_num.to_decimal()}\nHexadecimal: {_num.to_hex()}\nOctal: {_num.to_octal()}\n")
 
     return main()
 
 
 def from_hex(num: str) -> None:
     _num = Hexadecimal(num)
-    print(f"\nHexadecimal: {num}\nDecimal: {_num.to_decimal()}\nBinary: {_num.to_binary()}\nOctal: {_num.to_octal()}\n")
+
+    if len(num) == 0:
+        print("\nYou have to write the hexadecimal number, please try again\n")
+
+    else:
+        if _num.check is False:
+            print(f"\n{num} is not a hexadecimal number, please try again\n")
+
+        else:
+            print(f"\nHexadecimal: {num}\nDecimal: {_num.to_decimal()}\nBinary: {_num.to_binary()}\nOctal: {_num.to_octal()}\n")
 
     return main()
 
 
 def from_octal(num: int) -> None:
-    _num = Octal(num)
-    print(f"\nOctal: {num}\nDecimal: {_num.to_decimal()}\nBinary: {_num.to_binary()}\nHexadecimal: {_num.to_hex()}\n")
+    try:
+        int(num)
+
+    except:
+        if len(num) == 0:
+            print("\nYou have to write the octal number, please try again\n")
+
+        else:
+            print(f"\n{num} is not a octal number, please try again\n")
+
+        main()
+
+    _num = Octal(int(num))
+
+    if _num.check is False:
+        print(f"\n{num} is not a octal number, please try again\n")
+
+    else:
+        print(f"\nOctal: {num}\nDecimal: {_num.to_decimal()}\nBinary: {_num.to_binary()}\nHexadecimal: {_num.to_hex()}\n")
 
     return main()
 

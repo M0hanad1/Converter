@@ -5,8 +5,12 @@ class functions:
         for i in result:
             if i == "0":
                 result = result[1:]
+
             else:
                 break
+
+        if len(result) == 0:
+            result = "0"
 
         return result
 
@@ -69,8 +73,20 @@ class Decimal:
 class Binary:
     def __init__(self, num: str) -> None:
         self.num = num
+        self.check = True
 
-    def to_decimal(self) -> int:
+        while True:
+            for i in num:
+                if i != "0" and i != "1":
+                    self.check = False
+                    break
+
+            break
+
+    def to_decimal(self) -> int or None:
+        if self.check is False:
+            return None
+
         result = 0
         pow_num = 0
 
@@ -80,7 +96,10 @@ class Binary:
 
         return result
 
-    def to_hex(self) -> str:
+    def to_hex(self) -> str or None:
+        if self.check == False:
+            return None
+
         num = self.num
         _hex = {
             "0000": "0", "0001": "1", "0010": "2", "0011": "3", "0100": "4", "0101": "5", "0110": "6", "0111": "7",
@@ -111,9 +130,12 @@ class Binary:
         for i in nums:
             result += _hex[nums[i]]
 
-        return check(result)
+            return check(result)
 
-    def to_octal(self) -> str:
+    def to_octal(self) -> str or None:
+        if self.check == False:
+            return None
+
         num = self.num
         result = ""
         nums = {}
@@ -156,8 +178,26 @@ class Binary:
 class Hexadecimal:
     def __init__(self, num: str) -> None:
         self.num = num
+        self.check = True
+        _hex = ["A", "B", "C", "D", "E", "F"]
 
-    def to_decimal(self) -> int:
+        while True:
+            for i in num:
+                try:
+                    if int(i) not in range(0, 10) and i not in _hex:
+                        self.check = False
+                        break
+                except:
+                    if i not in _hex:
+                        self.check = False
+                        break
+
+            break
+
+    def to_decimal(self) -> int or None:
+        if self.check is False:
+            return None
+
         _hex = {"A": 10, "B": 11, "C": 12, "D": 13, "E": 14, "F": 15}
         result = 0
         pow_num = 0
@@ -173,27 +213,45 @@ class Hexadecimal:
 
         return result
 
-    def to_binary(self) -> str:
+    def to_binary(self) -> str or None:
+        if self.check is False:
+            return None
+
         _hex = {
             "0": "0000", "1": "0001", "2": "0010", "3": '0011', "4": "0100", "5": "0101", "6": "0110", "7": "0111",
             "8": "1000", "9": "1001", "A": "1010", "B": "1011", "C": "1100", "D": "1101", "E": "1110", "F": "1111"
         }
         result = ""
 
-        for i in check(self.num):
+        for i in self.num:
             result += _hex[i]
 
-        return result
+        return check(result)
 
-    def to_octal(self) -> str:
+    def to_octal(self) -> str or None:
+        if self.check is False:
+            return None
+
         return Binary(self.to_binary()).to_octal()
 
 
 class Octal:
     def __init__(self, num: int) -> None:
         self.num = num
+        self.check = True
 
-    def to_decimal(self) -> int:
+        while True:
+            for i in str(num):
+                if int(i) not in range(0, 8):
+                    self.check = False
+                    break
+
+            break
+
+    def to_decimal(self) -> int or None:
+        if self.check is False:
+            return None
+
         result = 0
         pow_num = 0
 
@@ -203,7 +261,10 @@ class Octal:
 
         return result
 
-    def to_binary(self) -> str:
+    def to_binary(self) -> str or None:
+        if self.check is False:
+            return None
+
         result = ""
         binary = {0: "000", 1: "001", 2: "010", 3: "011", 4: "100", 5: "101", 6: "110", 7: "111"}
 
@@ -212,5 +273,8 @@ class Octal:
 
         return check(result)
 
-    def to_hex(self) -> str:
+    def to_hex(self) -> str or None:
+        if self.check is False:
+            return None
+
         return Binary(self.to_binary()).to_hex()
