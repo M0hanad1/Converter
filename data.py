@@ -130,7 +130,7 @@ class Binary:
         for i in nums:
             result += _hex[nums[i]]
 
-            return check(result)
+        return check(result)
 
     def to_octal(self) -> str or None:
         if self.check == False:

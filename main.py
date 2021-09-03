@@ -40,10 +40,10 @@ def from_decimal(num: int) -> None:
 
     except:
         if len(num) == 0:
-            print("\nYou have to write the decimal number, please try again\n")
+            print("\nYou have to write the Decimal number, please try again\n")
 
         else:
-            print(f"\n{num} is not a decimal number, please try again\n")
+            print(f"\n{num} is not a Decimal number, please try again\n")
 
         main()
 
@@ -57,11 +57,11 @@ def from_binary(num: str) -> None:
     _num = Binary(num)
 
     if len(num) == 0:
-        print("\nYou have to write the binary number, please try again\n")
+        print("\nYou have to write the Binary number, please try again\n")
 
     else:
         if _num.check is False:
-            print(f"\n{num} is not a binary number, please try again\n")
+            print(f"\n{num} is not a Binary number, please try again\n")
 
         else:
             print(f"\nBinary: {num}\nDecimal: {_num.to_decimal()}\nHexadecimal: {_num.to_hex()}\nOctal: {_num.to_octal()}\n")
@@ -73,11 +73,11 @@ def from_hex(num: str) -> None:
     _num = Hexadecimal(num)
 
     if len(num) == 0:
-        print("\nYou have to write the hexadecimal number, please try again\n")
+        print("\nYou have to write the Hexadecimal number, please try again\n")
 
     else:
         if _num.check is False:
-            print(f"\n{num} is not a hexadecimal number, please try again\n")
+            print(f"\n{num} is not a Hexadecimal number, please try again\n")
 
         else:
             print(f"\nHexadecimal: {num}\nDecimal: {_num.to_decimal()}\nBinary: {_num.to_binary()}\nOctal: {_num.to_octal()}\n")
@@ -91,17 +91,17 @@ def from_octal(num: int) -> None:
 
     except:
         if len(num) == 0:
-            print("\nYou have to write the octal number, please try again\n")
+            print("\nYou have to write the Octal number, please try again\n")
 
         else:
-            print(f"\n{num} is not a octal number, please try again\n")
+            print(f"\n{num} is not a Octal number, please try again\n")
 
         main()
 
     _num = Octal(int(num))
 
     if _num.check is False:
-        print(f"\n{num} is not a octal number, please try again\n")
+        print(f"\n{num} is not a Octal number, please try again\n")
 
     else:
         print(f"\nOctal: {num}\nDecimal: {_num.to_decimal()}\nBinary: {_num.to_binary()}\nHexadecimal: {_num.to_hex()}\n")
