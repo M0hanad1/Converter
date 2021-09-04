@@ -55,7 +55,7 @@ class Decimal:
         result = ""
 
         if num == 0:
-            pass
+            result += "0"
 
         while num > 0:
             if num % 8 > 7:

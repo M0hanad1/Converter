@@ -27,7 +27,7 @@ def check(value: str) -> None:
         return from_octal(input("\nWrite a Octal number:\n").strip())
 
     elif value == "5" or value == "E" or value == "Exit":
-        sys.exit("Okay, see you later") 
+        sys.exit("Okay, see you later")
 
     else:
         print("\nWrong value please try again\n")
@@ -110,7 +110,3 @@ def from_octal(num: str) -> None:
               f"Hexadecimal: {_num.to_hex()}\n")
 
     return main()
-
-
-if __name__ == "__main__":
-    main()
