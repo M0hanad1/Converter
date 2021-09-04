@@ -1,5 +1,5 @@
 from data import *
-import sys
+from sys import exit
 
 
 def main() -> None:
@@ -27,7 +27,7 @@ def check(value: str) -> None:
         return from_octal(input("\nWrite a Octal number:\n").strip())
 
     elif value == "5" or value == "E" or value == "Exit":
-        sys.exit("Okay, see you later")
+        exit("Okay, see you later")
 
     else:
         print("\nWrong value please try again\n")
