@@ -1,23 +1,21 @@
+from base64 import b64encode
+
+
 class Hexadecimal:
     def __init__(self, number: str) -> None:
         self.num = number
 
-    def to_decimal(self) -> int:
-        return int(self.num, 16)
+    def to_decimal(self) -> str:
+        return ' '.join(str(int(i, 16)) for i in self.num.split())
 
     def to_binary(self) -> str:
-        return bin(self.to_decimal())[2:]
+        return ' '.join(bin(int(i))[2:] for i in self.to_decimal().split())
 
     def to_octal(self) -> str:
-        return oct(self.to_decimal())[2:]
+        return ' '.join(oct(int(i))[2:] for i in self.to_decimal().split())
 
     def to_ascii(self) -> str:
         return bytes.fromhex(self.num).decode('ASCII')
 
-
-bt = Hexadecimal('482045')
-print(bt.to_decimal())
-print(bt.to_hex())
-print(bt.to_ascii())
-print(bt.to_octal())
-print(bt.to_base64())
+    def to_base64(self) -> str:
+        return str(b64encode(bytes(self.to_ascii(), 'utf-8')))[2:-1]
