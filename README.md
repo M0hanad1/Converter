@@ -1,10 +1,17 @@
-# Converter
-This app using to convert between Decimal, Binary, Hexadecimal and Octal
-## Notes
-This app has a few bugs
+# Converter:
+- **This is using to convert between:**
+    - **Decimal**
+    - **Binary**
+    - **Hexadecimal**
+    - **Octal**
+    - **Ascii**
+    - **Base64**
 
-This app wrote in Python
+## Notes:
+- **This app might have some bugs and issues.**
 
-This app wrote by Mohanad
+- **This app using [Python](https://www.python.org/ "Python") language.**
 
-This app doesn't have a GUI
+- **This app doesn't have a [GUI](https://en.wikipedia.org/wiki/Graphical_user_interface "Graphical User Interface").**
+
+- **This is just a simple [**Console App**](https://en.wikipedia.org/wiki/Console_application "Console App").**
