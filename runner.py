@@ -1,5 +1,5 @@
-from main import main
+from main import Main
 
 
 if __name__ == "__main__":
-    print(main())
+    Main().main()
