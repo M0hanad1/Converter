@@ -65,7 +65,7 @@ class Hexadecimal:
         return ' '.join(oct(int(i))[2:] for i in self.to_decimal().split())
 
     def to_ascii(self) -> str:
-        return bytes.fromhex(self.num).decode('ASCII')
+        return ''.join(chr(int(i)) for i in self.to_decimal().split())
 
     def to_base64(self) -> str:
         return str(b64encode(bytes(self.to_ascii(), 'utf-8')))[2:-1]
