@@ -17,9 +17,13 @@ class Main:
         try:
             return self.run()
 
-        except (Error, ValueError, OverflowError):
+        except (Error, ValueError):
             print('\nWrong value please try again\n')
-            return self.main()
+
+        except OverflowError:
+            print('Ascii: Unable to convert\nBase64: Unable to convert\n')
+
+        return self.main()
 
     def run(self) -> None:
         choose = input('Choose one of these:\n').replace(' ', '').upper()
@@ -96,9 +100,9 @@ class Main:
 
         print(
             f'\nDecimal: {self.num}\n\nBinary: {x.to_binary()}\n'
-            f'Hexadecimal: {x.to_hex()}\nOctal: {x.to_octal()}\n'
-            f'Ascii: {x.to_ascii()}\nBase64: {x.to_base64()}\n'
+            f'Hexadecimal: {x.to_hex()}\nOctal: {x.to_octal()}'
         )
+        print(f'Ascii: {x.to_ascii()}\nBase64: {x.to_base64()}\n')
 
         return self.main()
 
@@ -107,9 +111,9 @@ class Main:
 
         print(
             f'\nBinary: {self.num}\n\nDecimal: {x.to_decimal()}\n'
-            f'Hexadecimal: {x.to_hex()}\nOctal: {x.to_octal()}\n'
-            f'Ascii: {x.to_ascii()}\nBase64: {x.to_base64()}\n'
+            f'Hexadecimal: {x.to_hex()}\nOctal: {x.to_octal()}'
         )
+        print(f'Ascii: {x.to_ascii()}\nBase64: {x.to_base64()}\n')
 
         return self.main()
 
@@ -118,9 +122,9 @@ class Main:
 
         print(
             f'\nHexadecimal: {self.num}\n\nDecimal: {x.to_decimal()}'
-            f'\nBinary: {x.to_binary()}\nOctal: {x.to_octal()}\n'
-            f'Ascii: {x.to_ascii()}\nBase64: {x.to_base64()}\n'
+            f'\nBinary: {x.to_binary()}\nOctal: {x.to_octal()}'
         )
+        print(f'Ascii: {x.to_ascii()}\nBase64: {x.to_base64()}\n')
 
         return self.main()
 
@@ -129,9 +133,14 @@ class Main:
 
         print(
             f'\nOctal: {self.num}\n\nDecimal: {x.to_decimal()}\n'
-            f'Binary: {x.to_binary()}\nHexadecimal: {x.to_hex()}\n'
-            f'Ascii: {x.to_ascii()}\nBase64: {x.to_base64()}\n'
+            f'Binary: {x.to_binary()}\nHexadecimal: {x.to_hex()}'
         )
+
+        try:
+            print(f'Ascii: {x.to_ascii()}\nBase64: {x.to_base64()}\n')
+
+        except ValueError:
+            print('Ascii: Unable to convert\nBase64: Unable to convert\n')
 
         return self.main()
 
