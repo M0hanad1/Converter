@@ -1,11 +1,11 @@
 # Converter:
 - **This app using to convert between:**
-    - **Decimal**
-    - **Binary**
-    - **Hexadecimal**
-    - **Octal**
-    - **Ascii**
-    - **Base64**
+    - **[Decimal](https://en.wikipedia.org/wiki/Decimal "Decimal")**
+    - **[Binary](https://en.wikipedia.org/wiki/Binary_number "Binary")**
+    - **[Hexadecimal](https://en.wikipedia.org/wiki/Hexadecimal "Hexadecimal")**
+    - **[Octal](https://en.wikipedia.org/wiki/Octal "Octal")**
+    - **[Ascii](https://en.wikipedia.org/wiki/ASCII "Ascii")**
+    - **[Base64](https://en.wikipedia.org/wiki/Base64 "Base64")**
 
 ## Notes:
 - **This app might have some bugs and issues.**
