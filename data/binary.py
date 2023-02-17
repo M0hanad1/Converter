@@ -4,18 +4,28 @@ from base64 import b64encode
 class Binary:
     def __init__(self, number: str) -> None:
         self.num = number
+        self.decimal
+        self.hex
+        self.octal
+        self.ascii
+        self.base64
 
-    def to_decimal(self) -> str:
+    @property
+    def decimal(self):
         return ' '.join(str(int(i, 2)) for i in self.num.split())
 
-    def to_hex(self) -> str:
-        return ' '.join(hex(int(i))[2:] for i in self.to_decimal().split())
+    @property
+    def hex(self):
+        return ' '.join(hex(int(i))[2:] for i in self.decimal.split()).upper()
 
-    def to_octal(self) -> str:
-        return ' '.join(oct(int(i))[2:] for i in self.to_decimal().split())
+    @property
+    def octal(self):
+        return ' '.join(oct(int(i))[2:] for i in self.decimal.split())
 
-    def to_ascii(self) -> str:
-        return ''.join(chr(int(i)) for i in self.to_decimal().split())
+    @property
+    def ascii(self):
+        return ''.join(chr(int(i)) for i in self.decimal.split())
 
-    def to_base64(self) -> str:
-        return str(b64encode(bytes(self.to_ascii(), 'utf-8')))[2:-1]
+    @property
+    def base64(self):
+        return str(b64encode(bytes(self.ascii, 'utf-8')))[2:-1]

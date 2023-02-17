@@ -1,21 +1,31 @@
 from base64 import b64decode
 
 
-class Base64_:
+class Base64:
     def __init__(self, text: str) -> None:
         self.text = text
+        self.decimal
+        self.binary
+        self.hex
+        self.octal
+        self.ascii
 
-    def to_decimal(self) -> str:
-        return ' '.join(str(ord(i)) for i in self.to_ascii())
+    @property
+    def decimal(self):
+        return ' '.join(str(ord(i)) for i in self.ascii)
 
-    def to_binary(self) -> str:
-        return ' '.join(bin(int(i))[2:] for i in self.to_decimal().split())
+    @property
+    def binary(self):
+        return ' '.join(bin(int(i))[2:] for i in self.decimal.split())
 
-    def to_hex(self) -> str:
-        return ' '.join(hex(int(i))[2:] for i in self.to_decimal().split())
+    @property
+    def hex(self):
+        return ' '.join(hex(int(i))[2:] for i in self.decimal.split()).upper()
 
-    def to_octal(self) -> str:
-        return ' '.join(oct(int(i))[2:] for i in self.to_decimal().split())
+    @property
+    def octal(self):
+        return ' '.join(oct(int(i))[2:] for i in self.decimal.split())
 
-    def to_ascii(self) -> str:
+    @property
+    def ascii(self):
         return str(b64decode(bytes(self.text, 'utf-8')))[2:-1]
