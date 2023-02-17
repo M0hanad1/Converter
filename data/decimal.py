@@ -28,4 +28,4 @@ class Decimal:
 
     @property
     def base64(self):
-        return str(b64encode(bytes(self.to_ascii(), 'utf-8')))[2:-1]
+        return str(b64encode(bytes(self.ascii, 'utf-8')))[2:-1]

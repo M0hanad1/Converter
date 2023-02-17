@@ -4,7 +4,7 @@ from data.binary import Binary
 from data.hexadecimal import Hexadecimal
 from data.octal import Octal
 from data.ascii import Ascii
-from data.base64_ import Base64_
+from data.base64_ import Base64
 
 
 class Main:
@@ -104,10 +104,10 @@ class Main:
         x = Decimal(self.num)
 
         print(
-            f'\nDecimal: {self.num}\n\nBinary: {x.to_binary()}\n'
-            f'Hexadecimal: {x.to_hex().upper()}\nOctal: {x.to_octal()}'
+            f'\nDecimal: {self.num}\n\nBinary: {x.binary}\n'
+            f'Hexadecimal: {x.hex}\nOctal: {x.octal}'
         )
-        print(f'Ascii: {x.to_ascii()}\nBase64: {x.to_base64()}\n')
+        print(f'Ascii: {x.ascii}\nBase64: {x.base64}\n')
 
         return self.main()
 
@@ -115,10 +115,10 @@ class Main:
         x = Binary(self.num)
 
         print(
-            f'\nBinary: {self.num}\n\nDecimal: {x.to_decimal()}\n'
-            f'Hexadecimal: {x.to_hex().upper()}\nOctal: {x.to_octal()}'
+            f'\nBinary: {self.num}\n\nDecimal: {x.decimal}\n'
+            f'Hexadecimal: {x.hex}\nOctal: {x.octal}'
         )
-        print(f'Ascii: {x.to_ascii()}\nBase64: {x.to_base64()}\n')
+        print(f'Ascii: {x.ascii}\nBase64: {x.base64}\n')
 
         return self.main()
 
@@ -126,10 +126,10 @@ class Main:
         x = Hexadecimal(self.num)
 
         print(
-            f'\nHexadecimal: {self.num.upper()}\n\nDecimal: {x.to_decimal()}'
-            f'\nBinary: {x.to_binary()}\nOctal: {x.to_octal()}'
+            f'\nHexadecimal: {self.num.upper()}\n\nDecimal: {x.decimal}'
+            f'\nBinary: {x.binary}\nOctal: {x.octal}'
         )
-        print(f'Ascii: {x.to_ascii()}\nBase64: {x.to_base64()}\n')
+        print(f'Ascii: {x.ascii}\nBase64: {x.base64}\n')
 
         return self.main()
 
@@ -137,12 +137,12 @@ class Main:
         x = Octal(self.num)
 
         print(
-            f'\nOctal: {self.num}\n\nDecimal: {x.to_decimal()}\n'
-            f'Binary: {x.to_binary()}\nHexadecimal: {x.to_hex().upper()}'
+            f'\nOctal: {self.num}\n\nDecimal: {x.decimal}\n'
+            f'Binary: {x.binary}\nHexadecimal: {x.hex}'
         )
 
         try:
-            print(f'Ascii: {x.to_ascii()}\nBase64: {x.to_base64()}\n')
+            print(f'Ascii: {x.ascii}\nBase64: {x.base64}\n')
 
         except ValueError:
             print('Ascii: Unable to convert\nBase64: Unable to convert\n')
@@ -153,20 +153,20 @@ class Main:
         x = Ascii(self.num)
 
         print(
-            f'\nAscii: {self.num}\n\nDecimal: {x.to_decimal()}\n'
-            f'Binary: {x.to_binary()}\nHexadecimal: {x.to_hex().upper()}\n'
-            f'Octal: {x.to_octal()}\nBase64: {x.to_base64()}\n'
+            f'\nAscii: {self.num}\n\nDecimal: {x.decimal}\n'
+            f'Binary: {x.binary}\nHexadecimal: {x.hex}\n'
+            f'Octal: {x.octal}\nBase64: {x.base64}\n'
         )
 
         return self.main()
 
     def from_base64(self) -> None:
-        x = Base64_(self.num)
+        x = Base64(self.num)
 
         print(
-            f'\nBase64: {self.num}\n\nDecimal: {x.to_decimal()}\n'
-            f'Binary: {x.to_binary()}\nHexadecimal: {x.to_hex().upper()}'
-            f'\nOctal: {x.to_octal()}\nAscii: {x.to_ascii()}\n'
+            f'\nBase64: {self.num}\n\nDecimal: {x.decimal}\n'
+            f'Binary: {x.binary}\nHexadecimal: {x.hex}'
+            f'\nOctal: {x.octal}\nAscii: {x.ascii}\n'
         )
 
         return self.main()
