@@ -9,6 +9,7 @@ class Decimal:
         self.octal
         self.ascii
         self.base64
+        self.data = {"binary": self.binary, "hex": self.hex, "octal": self.octal, "ascii": self.ascii, "base64": self.base64}
 
     @property
     def binary(self):

@@ -14,6 +14,4 @@
 
 -   **This app wrote in [Python](https://www.python.org/ "Python").**
 
--   **This app doesn't have a [GUI](https://en.wikipedia.org/wiki/Graphical_user_interface "Graphical User Interface").**
-
--   **This is just a simple [**Console App**](https://en.wikipedia.org/wiki/Console_application "Console App").**
+-   **This app is using [BeeWare](https://beeware.org/ "BeeWare") for the [GUI](https://en.wikipedia.org/wiki/Graphical_user_interface "GUI").**

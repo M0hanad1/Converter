@@ -1,4 +1,6 @@
 __pycache__
-test/*
+old_app
+test*
 *temp.py
 .VSCode
+*venv

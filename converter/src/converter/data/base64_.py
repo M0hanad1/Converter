@@ -1,31 +1,32 @@
-from base64 import b64encode
+from base64 import b64decode
 
 
-class Ascii:
+class Base64:
     def __init__(self, text: str) -> None:
         self.text = text
         self.decimal
         self.binary
         self.hex
         self.octal
-        self.base64
+        self.ascii
+        self.data = {"decimal": self.decimal, "binary": self.binary, "hex": self.hex, "octal": self.octal, "ascii": self.ascii}
 
     @property
-    def decimal(self) -> str:
-        return ' '.join(str(ord(i)) for i in self.text)
+    def decimal(self):
+        return ' '.join(str(ord(i)) for i in self.ascii)
 
     @property
-    def binary(self) -> str:
+    def binary(self):
         return ' '.join(bin(int(i))[2:] for i in self.decimal.split())
 
     @property
-    def hex(self) -> str:
+    def hex(self):
         return ' '.join(hex(int(i))[2:] for i in self.decimal.split()).upper()
 
     @property
-    def octal(self) -> str:
+    def octal(self):
         return ' '.join(oct(int(i))[2:] for i in self.decimal.split())
 
     @property
-    def base64(self) -> str:
-        return str(b64encode(bytes(self.text, 'utf-8')))[2:-1]
+    def ascii(self):
+        return str(b64decode(bytes(self.text, 'utf-8')))[2:-1]

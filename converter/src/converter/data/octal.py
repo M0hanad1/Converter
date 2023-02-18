@@ -1,26 +1,27 @@
 from base64 import b64encode
 
 
-class Hexadecimal:
-    def __init__(self, number: str) -> None:
-        self.num = number
+class Octal:
+    def __init__(self, num: str) -> None:
+        self.num = num
         self.decimal
         self.binary
-        self.octal
+        self.hex
         self.ascii
         self.base64
+        self.data = {"decimal": self.decimal, "binary": self.binary, "hex": self.hex, "ascii": self.ascii, "base64": self.base64}
 
     @property
     def decimal(self):
-        return ' '.join(str(int(i, 16)) for i in self.num.split())
+        return ' '.join(str(int(i, 8)) for i in self.num.split())
 
     @property
     def binary(self):
         return ' '.join(bin(int(i))[2:] for i in self.decimal.split())
 
     @property
-    def octal(self):
-        return ' '.join(oct(int(i))[2:] for i in self.decimal.split())
+    def hex(self):
+        return ' '.join(hex(int(i))[2:] for i in self.decimal.split()).upper()
 
     @property
     def ascii(self):

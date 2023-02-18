@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Briefcase-Version: 0.3.12
+Name: converter
+Formal-Name: Converter
+App-ID: com.example.converter
+Version: 0.0.1
+Home-page: https://example.com/converter
+Download-URL: https://example.com/converter
+Author: Mohanad Ahmed
+Author-email: mohned.dabsha@gmail.com
+Summary: This app is using to convert between [Decimal, Binary, Hex, Octal, Ascii, Base64]
