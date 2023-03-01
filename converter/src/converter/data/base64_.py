@@ -6,10 +6,10 @@ class Base64:
         self.text = text
         self.decimal
         self.binary
-        self.hex
+        self.hexadecimal
         self.octal
         self.ascii
-        self.data = {"decimal": self.decimal, "binary": self.binary, "hex": self.hex, "octal": self.octal, "ascii": self.ascii}
+        self.data = {"decimal": self.decimal, "binary": self.binary, "hexadecimal": self.hexadecimal, "octal": self.octal, "ascii": self.ascii}
 
     @property
     def decimal(self):
@@ -20,7 +20,7 @@ class Base64:
         return ' '.join(bin(int(i))[2:] for i in self.decimal.split())
 
     @property
-    def hex(self):
+    def hexadecimal(self):
         return ' '.join(hex(int(i))[2:] for i in self.decimal.split()).upper()
 
     @property

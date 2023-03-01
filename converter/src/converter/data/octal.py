@@ -6,10 +6,10 @@ class Octal:
         self.num = num
         self.decimal
         self.binary
-        self.hex
+        self.hexadecimal
         self.ascii
         self.base64
-        self.data = {"decimal": self.decimal, "binary": self.binary, "hex": self.hex, "ascii": self.ascii, "base64": self.base64}
+        self.data = {"decimal": self.decimal, "binary": self.binary, "hexadecimal": self.hexadecimal, "ascii": self.ascii, "base64": self.base64}
 
     @property
     def decimal(self):
@@ -20,7 +20,7 @@ class Octal:
         return ' '.join(bin(int(i))[2:] for i in self.decimal.split())
 
     @property
-    def hex(self):
+    def hexadecimal(self):
         return ' '.join(hex(int(i))[2:] for i in self.decimal.split()).upper()
 
     @property

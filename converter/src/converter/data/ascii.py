@@ -6,10 +6,10 @@ class Ascii:
         self.text = text
         self.decimal
         self.binary
-        self.hex
+        self.hexadecimal
         self.octal
         self.base64
-        self.data = {"decimal": self.decimal, "binary": self.binary, "hex": self.hex, "octal": self.octal, "base64": self.base64}
+        self.data = {"decimal": self.decimal, "binary": self.binary, "hexadecimal": self.hexadecimal, "octal": self.octal, "base64": self.base64}
 
     @property
     def decimal(self) -> str:
@@ -20,7 +20,7 @@ class Ascii:
         return ' '.join(bin(int(i))[2:] for i in self.decimal.split())
 
     @property
-    def hex(self) -> str:
+    def hexadecimal(self) -> str:
         return ' '.join(hex(int(i))[2:] for i in self.decimal.split()).upper()
 
     @property

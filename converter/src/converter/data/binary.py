@@ -5,18 +5,18 @@ class Binary:
     def __init__(self, number: str) -> None:
         self.num = number
         self.decimal
-        self.hex
+        self.hexadecimal
         self.octal
         self.ascii
         self.base64
-        self.data = {"decimal": self.decimal, "hex": self.hex, "octal": self.octal, "ascii": self.ascii, "base64": self.base64}
+        self.data = {"decimal": self.decimal, "hexadecimal": self.hexadecimal, "octal": self.octal, "ascii": self.ascii, "base64": self.base64}
 
     @property
     def decimal(self):
         return ' '.join(str(int(i, 2)) for i in self.num.split())
 
     @property
-    def hex(self):
+    def hexadecimal(self):
         return ' '.join(hex(int(i))[2:] for i in self.decimal.split()).upper()
 
     @property
